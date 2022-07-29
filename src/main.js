@@ -18,11 +18,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
 
-app.directive("title", {
-  inserted: function (el, binding) {
-    document.title = el.dataset.title;
-  },
-});
-
 // app.use(router).use(ElementPlus).mount("#app");
 app.use(router).use(ElementPlus, { size: "small" }).mount("#app");
