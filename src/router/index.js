@@ -34,7 +34,6 @@ const router = createRouter({
 
 // 导航守卫
 router.beforeEach((to, from, next) => {
-  // if (checkPermission(to.path)) {
   console.log(router.hasRoute);
   if (router.hasRoute(to.name)) {
     document.title = to.meta.title;
