@@ -1,5 +1,5 @@
 <template>
-  <div v-title data-title="这是详情">
+  <div>
     <h1>this is article page</h1>
   </div>
 </template>
