@@ -19,6 +19,7 @@ export default {
       const res = await this.$api.getTestData();
       console.log(res);
     },
+
     goArticle() {
       let routeUrl = this.$router.resolve({
         path: "/article/post/1234567890",
