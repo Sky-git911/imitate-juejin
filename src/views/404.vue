@@ -22,7 +22,7 @@ export default {};
   position: relative;
   margin: 0 auto;
   width: 100%;
-  max-width: 960px px;
+  max-width: 960px;
   &__bg {
     position: fixed;
     top: 0;
