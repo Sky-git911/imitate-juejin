@@ -41,4 +41,13 @@ export default {
       mock: false,
     });
   },
+  // 获取综合文章列表接口
+  getComprehensiveList(params) {
+    return request({
+      url: "/article/comprehensive",
+      method: "post",
+      data: params,
+      mock: false,
+    });
+  },
 };

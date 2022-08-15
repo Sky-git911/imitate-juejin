@@ -10,7 +10,7 @@ const routes = [
     component: () => import("@/views/Home.vue"),
   },
   {
-    path: "/article/post/:id",
+    path: "/post/:id",
     name: "Article",
     meta: {
       title: "文章详情",

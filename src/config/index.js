@@ -13,7 +13,7 @@ const EnvConfig = {
       "https://www.fastmock.site/mock/eec79b676dfa24fcf5c2a0b4a12bb015/api",
   },
   prod: {
-    baseApi: "//prodApi.com/api",
+    baseApi: "/api",
     mockApi:
       "https://www.fastmock.site/mock/eec79b676dfa24fcf5c2a0b4a12bb015/api",
   },

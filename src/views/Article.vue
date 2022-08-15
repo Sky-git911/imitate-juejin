@@ -10,11 +10,17 @@ export default {
     return {};
   },
   created() {
-    this.getCategory();
-    this.getComment();
-    this.getArticle();
+    // this.getCategory();
+    // this.getComment();
+    // this.getArticle();
+    this.getTestData();
   },
   methods: {
+    async getTestData() {
+      let res = await this.$api.getTestData();
+      console.log("Res", res);
+    },
+
     async getCategory() {
       const res = await this.$api.getCategory();
       console.log("类别", res);
