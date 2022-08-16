@@ -11,9 +11,8 @@
         <!-- 标题 -->
         <ArticleHeader />
         <!-- 正文 -->
-        <div class="main-text">
-          <img src="@/assets/detail/test.png" alt="" />
-        </div>
+        <ArticleMainText />
+        
       </article>
     </div>
   </div>
@@ -21,9 +20,11 @@
 
 <script>
 import ArticleHeader from "@/components/ArticleHeader.vue";
+import ArticleMainText from "@/components/ArticleMainText.vue";
 export default {
   components: {
     ArticleHeader,
+    ArticleMainText,
   },
 };
 </script>
@@ -43,7 +44,7 @@ export default {
   }
   // 侧边导航栏
   .sidebar {
-    position: fixed;
+    position: absolute;
     top: 100px;
     right: 380px;
     width: 300px;
@@ -64,12 +65,6 @@ export default {
       display: flex;
       flex-direction: column;
       row-gap: 25px;
-      .main-text {
-        img {
-          width: 100%;
-          height: 425px;
-        }
-      }
     }
   }
 }
