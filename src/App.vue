@@ -14,12 +14,6 @@ body {
   color: #333;
   background-color: #f4f5f5;
 }
-// html {
-//   overflow: auto;
-// }
-// ::-webkit-scrollbar {
-//   display: none;
-// }
 a {
   text-decoration: none;
   cursor: pointer;
