@@ -32,6 +32,17 @@ export default {
       mock: false,
     });
   },
+
+  // 获取热门评论
+  getCommentHot(params) {
+    return request({
+      url: "/comment/hot",
+      method: "post",
+      data: params,
+      mock: false,
+    });
+  },
+
   // 获取article
   getArticle(params) {
     return request({

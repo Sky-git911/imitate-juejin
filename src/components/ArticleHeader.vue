@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .article-header-container {
     display: flex;
     flex-direction: column;

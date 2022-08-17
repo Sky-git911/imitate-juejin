@@ -10,7 +10,7 @@
       <div class="main-container">
         <article-list
           :allDataList="allDataList"
-          @request="requestData"
+          @equestr="requestData"
         ></article-list>
       </div>
     </main>

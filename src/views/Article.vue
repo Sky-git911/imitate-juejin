@@ -1,104 +1,116 @@
 <template>
   <div class="article-container">
     <!-- 头部导航栏 -->
-    <div class="header">头部导航栏</div>
-    <!-- 侧边导航栏 -->
-    <div class="sidebar">侧边导航栏</div>
-    <!-- 文章详情主区域 -->
-    <div class="article-area">
-      <!-- 文章内容 -->
-      <article>
-        <!-- 标题 -->
-        <ArticleHeader />
-        <!-- 正文 -->
-        <ArticleMainText />
-        
-      </article>
+    <div class="header"><Nav /></div>
+    <!-- 主区域 -->
+    <div class="main" ref="main">
+      <!-- 侧边导航栏 -->
+      <div class="sidebar"></div>
+      <!-- 文章详情主区域 -->
+      <div class="article-area">
+        <!-- 文章内容 -->
+        <article>
+          <!-- 标题 -->
+          <ArticleHeader />
+          <!-- 正文 -->
+          <ArticleMainText />
+        </article>
+      </div>
+    </div>
+    <!-- 左侧固定菜单 -->
+    <div class="menu">
+      <ArticleLeftside />
     </div>
   </div>
 </template>
 
 <script>
+import Nav from "@/components/Nav.vue";
 import ArticleHeader from "@/components/ArticleHeader.vue";
 import ArticleMainText from "@/components/ArticleMainText.vue";
+import ArticleLeftside from "@/components/ArticleLeftside.vue";
 export default {
-  data() {
-    return {};
-  },
-  // created() {
-    // this.getCategory();
-    // this.getComment();
-    // this.getArticle();
-    // this.getTestData();
-  // },
-  // methods: {
-  //   async getTestData() {
-  //     let res = await this.$api.getTestData();
-  //     console.log("Res", res);
-  //   },
-
-  //   async getCategory() {
-  //     const res = await this.$api.getCategory();
-  //     console.log("类别", res);
-  //   },
-  //   async getComment() {
-  //     const res = await this.$api.getComment({
-  //       articleId: "6953423646664687652",
-  //       pageIndex: "1",
-  //     });
-  //     console.log("comment", res);
-  //   },
-  //   async getArticle() {
-  //     const res = await this.$api.getArticle({
-  //       cateId: "6809637767543259144",
-  //       pageIndex: "0",
-  //     });
-  //     console.log("article", res);
-  //   },
   components: {
     ArticleHeader,
     ArticleMainText,
+    Nav,
+    ArticleLeftside,
+  },
+  data() {
+    return {
+      articleId: null,
+      // mainLeft: null,
+    };
+  },
+  created() {
+    this.articleId = window.location.href.substring(27);
+    this.getCommentHot();
+    this.getComment();
+  },
+  // mounted() {
+  //   window.addEventListener("resize", this.setSize);
+  // },
+  // destroy() {
+  //   window.removeEventListener("resize", this.setSize);
+  // },
+  methods: {
+    // setSize() {
+    //   console.log(this.mainLeft);
+    //   const rect = this.$refs.main.getBoundingClientRect();
+    //   this.mainLeft = rect.left;
+    // },
+    // 获取全部评论
+    async getComment() {
+      const res = await this.$api.getComment({
+        articleId: this.articleId,
+        pageIndex: "0",
+      });
+      console.log("comment", res);
+    },
+    // 获取热门评论
+    async getCommentHot() {
+      const res = await this.$api.getCommentHot({
+        articleId: this.articleId,
+      });
+      console.log("commentHot", res);
+    },
   },
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .article-container {
   background-color: #f4f5f5;
   width: 100%;
   padding-bottom: 30px;
   // 头部导航栏
   .header {
-    height: 5rem;
-    line-height: 5rem;
-    background-color: lightgray;
-    text-align: center;
-    color: #fff;
-  }
-  // 侧边导航栏
-  .sidebar {
-    position: absolute;
-    top: 100px;
-    right: 380px;
-    width: 300px;
-    height: 600px;
-    line-height: 600px;
-    background-color: lightgray;
-    text-align: center;
-    color: #fff;
-  }
-  // 文章详情主区域
-  .article-area {
-    box-sizing: border-box;
     background-color: #fff;
-    width: 820px;
-    padding: 32px 32px 39px;
-    margin: 20px 700px 0 auto;
-    article {
-      display: flex;
-      flex-direction: column;
-      row-gap: 25px;
+  }
+  // 主区域
+  .main {
+    margin: 20px auto 0;
+    width: 1140px;
+    display: flex;
+    column-gap: 20px;
+    // 侧边导航栏
+    .sidebar {
     }
+    // 文章详情主区域
+    .article-area {
+      box-sizing: border-box;
+      background-color: #fff;
+      width: 820px;
+      padding: 32px 32px 39px;
+      article {
+        display: flex;
+        flex-direction: column;
+        row-gap: 25px;
+      }
+    }
+  }
+  // 左侧固定菜单
+  .menu {
   }
 }
 </style>

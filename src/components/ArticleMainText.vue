@@ -48,7 +48,7 @@
     <div class="pre-container">
       <div class="code-container">
         <highlightjs
-          language="Scala"
+          language="Java"
           :autodetect="false"
           :code="code3"
         ></highlightjs>
@@ -240,9 +240,10 @@ public class ExteImpl implements Externalizable {
 };
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .article-main-text-container {
   word-break: break-word;
+  font-size: 16px;
   img {
     width: 100%;
     height: 425px;
@@ -252,13 +253,13 @@ public class ExteImpl implements Externalizable {
     margin-top: 22px;
     margin-bottom: 22px;
     &.title1 {
-      font-weight: bold;
+      font-weight: bold !important;
     }
     &.title2 {
-      font-weight: bold;
+      font-weight: bold !important;
     }
     &.ending {
-      font-weight: bold;
+      font-weight: bold !important;
     }
     a {
       color: #0269c8;
@@ -270,7 +271,9 @@ public class ExteImpl implements Externalizable {
     padding: 0;
     margin: 0;
     padding-left: 28px;
-    list-style: disc;
+    li {
+      list-style: disc;
+    }
   }
   .pre-container {
     font-family: Menlo, Monaco, Consolas, Courier New, monospace;
