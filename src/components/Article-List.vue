@@ -21,10 +21,16 @@
               <!-- 循环 li ，文章卡片-->
               <li
                 class="item"
-                v-for="item in showDataList"
-                :key="item.article_id || item.advert_id"
+                v-for="(item, index) in showDataList"
+                :key="index"
                 @click="handleToDetail(item.article_id || item.advert_id)"
               >
+                <!-- <li
+                class="item"
+                v-for="(item) in showDataList"
+                :key="item.article_id || item.advert_id"
+                @click="handleToDetail(item.article_id || item.advert_id)"
+              > -->
                 <div
                   :class="{
                     item__content: true,
@@ -146,7 +152,7 @@ export default {
   computed: {
     // 容器最后一个元素索引
     endIndex() {
-      let endIndex = this.startIndex + this.containSize;
+      let endIndex = this.startIndex + this.containSize * 2;
       if (!this.allDataList[endIndex]) {
         endIndex = this.allDataList.length - 1;
       }
@@ -212,11 +218,9 @@ export default {
         window.webkitRequestAnimationFrame ||
         window.mozRequestAnimationFrame ||
         window.msRequestAnimationFrame;
-
       let fps = 30;
       let interval = 1000 / fps;
       let then = Date.now(); // 执行前时间戳
-
       requestAnimationFrame(() => {
         let now = Date.now(); // 执行时时间戳
         this.setDataStartIndex();
