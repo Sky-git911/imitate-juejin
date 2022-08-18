@@ -23,6 +23,15 @@ export default {
       mock: false,
     });
   },
+  // 获取导航栏类别下标签
+  getCategoryType(params) {
+      return request({
+        url: "/category/tag",
+        method: "post",
+        data: params,
+        mock: false,
+      });
+    },
   // 获取comment
   getComment(params) {
     return request({
