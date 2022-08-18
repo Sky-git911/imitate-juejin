@@ -31,7 +31,7 @@
       <div class="main-container">
         <article-list
           :allDataList="allDataList"
-          @equestr="requestData"
+          @request="requestData"
         ></article-list>
       </div>
     </main>
