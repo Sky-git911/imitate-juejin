@@ -90,12 +90,12 @@
                       </ul>
                     </div>
                     <!-- 文章主图 -->
-                    <img
+                    <!-- <img
                       v-if="item.cover_image || item.picture"
                       class="lazy content-thumb"
                       :src="item.cover_image || item.picture"
                       :alt="item.title"
-                    />
+                    /> -->
                   </div>
                   <!-- 关闭按钮 -->
                   <div class="dislike-button" @click.stop>
@@ -110,8 +110,8 @@
                   </div>
                 </div>
               </li>
-              <div v-if="!isRequestStatus" class="loading">
-                <!-- <h2>{{ msg }}</h2> -->
+              <div class="loading">
+                <h2>{{ msg }}</h2>
               </div>
             </div>
           </div>
@@ -141,10 +141,11 @@ export default {
       containSize: 0, // 容器的最大容积
       startIndex: 0, // 记录当前滚动的第一个元素的索引
       scrollStatus: true,
-      pagenum: 1,
+      pagenum: 0,
     };
   },
   mounted() {
+    this.observerLoading();
     this.getContainSize();
     window.onresize = this.getContainSize;
     window.onorientationchange = this.getContainSize;
@@ -189,7 +190,11 @@ export default {
       };
     },
   },
-  updated() {},
+  watch: {
+    allDataList() {
+      this.isRequestStatus = false;
+    },
+  },
   methods: {
     // 计算容器的最大容积
     getContainSize() {
@@ -218,7 +223,7 @@ export default {
         window.webkitRequestAnimationFrame ||
         window.mozRequestAnimationFrame ||
         window.msRequestAnimationFrame;
-      let fps = 30;
+      let fps = 60;
       let interval = 1000 / fps;
       let then = Date.now(); // 执行前时间戳
       requestAnimationFrame(() => {
@@ -234,21 +239,29 @@ export default {
     // 执行数据设置的相关任务，滚动事件的具体行为
     setDataStartIndex() {
       let scrollTop = this.$refs.scrollContainer.scrollTop;
-      // console.log("顶部高度", scrollTop);
       let currentIndex = ~~(scrollTop / this.oneHeight);
       if (this.startIndex == currentIndex) return;
-      // console.log("开始", this.startIndex, "当前", currentIndex);
       this.startIndex = currentIndex;
-      if (
-        this.startIndex + this.containSize > this.allDataList.length - 1 &&
-        !this.isRequestStatus
-      ) {
-        console.log("请求数据");
-        // 请求新数据
-        this.$emit("request", { pagenum: this.pagenum });
-        // this.isRequestStatus = true;
-        // To Do...
-      }
+    },
+
+    observerLoading() {
+      const loading = document.querySelector(".loading");
+      // 建立观察者
+      const ob = new IntersectionObserver(
+        (entries) => {
+          let entry = entries[0];
+          if (entry.isIntersecting && !this.isRequestStatus) {
+            this.isRequestStatus = true;
+            this.$emit("request", { pagenum: this.pagenum });
+            this.pagenum++;
+          }
+        },
+        {
+          thresholds: 0.1,
+        }
+      );
+      // 观察
+      ob.observe(loading);
     },
 
     // 跳转详情页

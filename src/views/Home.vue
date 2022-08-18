@@ -29,7 +29,7 @@ export default {
   },
   created() {
     this.getTestData();
-    this.getComprehensiveList();
+    // this.getComprehensiveList();
   },
   computed: {},
   methods: {
