@@ -3,27 +3,29 @@
     <div class="main-header-box">
       <header class="main-header">
         <Nav />
-      <div class="content2">
-        <div class="second-nav">
-          <div class="category"><router-link to="/" exact >综合</router-link></div>
-            <div  v-for="(item,index) in category" :key="index">
-            <el-popover
-              placement="bottom-start"
-              :width="320"
-              trigger="hover"
-            >
-              <div class="cat-tag">
-                <div v-for="(tag,index) in categorytype" :key="index">
-                  <div class="cat-btn" :model="catid=item.category_id"><a href="">{{tag}}</a></div>
+        <div class="content2">
+          <div class="second-nav">
+            <div class="category">
+              <router-link to="/" exact>综合</router-link>
+            </div>
+            <div v-for="(item, index) in category" :key="index">
+              <el-popover placement="bottom-start" :width="320" trigger="hover">
+                <div class="cat-tag">
+                  <div v-for="(tag, index) in categorytype" :key="index">
+                    <div class="cat-btn" :model="(catid = item.category_id)">
+                      <a href="">{{ tag }}</a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <template #reference>
-                  <div class="category"><router-link to="/hd">{{item.category_name}}</router-link></div>
-              </template>
-            </el-popover>
+                <template #reference>
+                  <div class="category">
+                    <router-link to="/hd">{{ item.category_name }}</router-link>
+                  </div>
+                </template>
+              </el-popover>
+            </div>
           </div>
         </div>
-      </div>  
       </header>
     </div>
 
@@ -46,20 +48,16 @@ export default {
   data() {
     return {
       allDataList: [],
-      category:[],
-      categoryid:[],
-      categorytype:[],
+      category: [],
+      categoryid: [],
+      categorytype: [],
     };
   },
   created() {
     this.getTestData();
-<<<<<<< HEAD
     // this.getComprehensiveList();
-=======
-    this.getComprehensiveList();
     this.getCategory();
     this.getCategoryType();
->>>>>>> juejin/dev_2.0
   },
   computed: {},
   methods: {
@@ -102,20 +100,22 @@ export default {
       }
     },
     async getCategory() {
-        const res = await this.$api.getCategory();
-         console.log("分类",res)
-        res.forEach((item) => {
-            this.category.push(item)  
-        }) 
-         //console.log("11",this.categoryid)
+      const res = await this.$api.getCategory();
+      console.log("分类", res);
+      res.forEach((item) => {
+        this.category.push(item);
+      });
+      //console.log("11",this.categoryid)
     },
     async getCategoryType() {
-        const res = await this.$api.getCategoryType({cateId:"6809637769959178254"});
-        console.log("标签",res)
-        res.forEach((item) => {
-            this.categorytype.push(item.tag_name)  
-        }) 
-    }
+      const res = await this.$api.getCategoryType({
+        cateId: "6809637769959178254",
+      });
+      console.log("标签", res);
+      res.forEach((item) => {
+        this.categorytype.push(item.tag_name);
+      });
+    },
   },
 };
 </script>
@@ -148,50 +148,49 @@ export default {
   right: 0;
   transition: all 0.2s;
 }
-.content2{
-    background-color: white;
-    height: 72%;
-    align-items: center;
-    line-height: 1;
+.content2 {
+  background-color: white;
+  height: 72%;
+  align-items: center;
+  line-height: 1;
 }
-.category{
-    text-align: center;
-    margin-top: 14px;
-    margin-right: 23px;
+.category {
+  text-align: center;
+  margin-top: 14px;
+  margin-right: 23px;
 }
-.second-nav a{
+.second-nav a {
   font-size: 1.16rem;
   color: #71777c;
 }
-a.router-link-active
-{
+a.router-link-active {
   color: #1e80ff;
 }
-.second-nav a:hover{ 
-   color:#1e80ff;
+.second-nav a:hover {
+  color: #1e80ff;
 }
-.second-nav{
+.second-nav {
   display: flex;
   margin: auto;
   max-width: 960px;
 }
-.cat-tag{
+.cat-tag {
   display: flex;
   flex-wrap: wrap;
   //padding-right:5px;
 }
-.cat-btn{
-  background-color:#f1f1f1;
-  width:auto;
+.cat-btn {
+  background-color: #f1f1f1;
+  width: auto;
   border-radius: 10px;
   padding: 2px 10px;
-  margin:3px 7px;
+  margin: 3px 7px;
 }
-.cat-btn a{
+.cat-btn a {
   font-size: 1.16rem;
   color: #71777c;
 }
-.cat-btn a:hover{
+.cat-btn a:hover {
   color: #1e80ff;
 }
 </style>

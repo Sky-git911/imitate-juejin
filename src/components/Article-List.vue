@@ -90,12 +90,12 @@
                       </ul>
                     </div>
                     <!-- 文章主图 -->
-                    <!-- <img
+                    <img
                       v-if="item.cover_image || item.picture"
                       class="lazy content-thumb"
                       :src="item.cover_image || item.picture"
                       :alt="item.title"
-                    /> -->
+                    />
                   </div>
                   <!-- 关闭按钮 -->
                   <div class="dislike-button" @click.stop>
