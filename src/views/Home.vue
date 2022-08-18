@@ -8,7 +8,11 @@
             <div class="category">
               <router-link to="/" exact>综合</router-link>
             </div>
-            <div v-for="(item, index) in category" :key="index">
+            <div
+              v-for="(item, index) in category"
+              :key="index"
+              @mouseover="handleGetCategoryType(item.category_id)"
+            >
               <el-popover placement="bottom-start" :width="320" trigger="hover">
                 <div class="cat-tag">
                   <div v-for="(tag, index) in categorytype" :key="index">
@@ -57,7 +61,7 @@ export default {
     this.getTestData();
     // this.getComprehensiveList();
     this.getCategory();
-    this.getCategoryType();
+    // this.getCategoryType();
   },
   computed: {},
   methods: {
@@ -107,14 +111,22 @@ export default {
       });
       //console.log("11",this.categoryid)
     },
-    async getCategoryType() {
+    async getCategoryType(cateId) {
       const res = await this.$api.getCategoryType({
-        cateId: "6809637769959178254",
+        // cateId: "6809637769959178254",
+        cateId,
       });
       console.log("标签", res);
+      let type = [];
       res.forEach((item) => {
-        this.categorytype.push(item.tag_name);
+        type.push(item.tag_name);
       });
+      this.categorytype = type;
+    },
+
+    handleGetCategoryType(id) {
+      console.log("分类id", id);
+      this.getCategoryType(id);
     },
   },
 };
