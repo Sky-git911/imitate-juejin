@@ -6,8 +6,14 @@
   </div>
 </template>
 
+<style scoped>
+  
+</style>
+
 <script>
+import Side from './Side.vue';
 export default {
+  components:{Side},
   data() {
     return {};
   },
