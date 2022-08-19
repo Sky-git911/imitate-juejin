@@ -34,12 +34,13 @@
     </div>
 
     <main class="containerwith-view-nav">
-      <div class="main-container">
+      <div class="main-container flex">
         <article-list
           :allDataList="allDataList"
           @request="requestData"
         ></article-list>
       </div>
+      
     </main>
   </div>
 </template>
@@ -48,7 +49,7 @@
 import Nav from "@/components/Nav.vue";
 import ArticleList from "@/components/Article-List.vue";
 export default {
-  components: { Nav, ArticleList },
+  components: { Nav, ArticleList, },
   data() {
     return {
       allDataList: [],
@@ -204,5 +205,10 @@ a.router-link-active {
 }
 .cat-btn a:hover {
   color: #1e80ff;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
 }
 </style>
