@@ -19,20 +19,24 @@ git pull origin master --allow-unrelated-histories
           </ul>
         </div>
         <div class="right">
-          <div class="search" ref="input">
+          <div
+            class="search"
+            ref="input"
+            :class="{ isFoucsActiveClass: isActive }"
+          >
             <el-input
               v-model="input4"
               class="w-50 m-2 search-input"
               placeholder="探索稀土掘金"
-              @focus="inputFocus"
-              @blur="inputBlur"
+              @focus="isFoucsActive(true)"
+              @blur="isFoucsActive(false)"
             >
               <template #append>
                 <el-button size="large" :icon="Search" />
               </template>
             </el-input>
           </div>
-          <div class="menu">
+          <div class="menu" :class="{ menuHide: isActive }">
             <el-button-group class="menu-btn">
               <el-button color="#007fff" class="add-btn">创作者中心</el-button>
               <el-button color="#007fff" class="more-btn">
@@ -40,12 +44,14 @@ git pull origin master --allow-unrelated-histories
               </el-button>
             </el-button-group>
           </div>
-          <div class="member">
-            <img src="../assets/member-logo.svg" class="member-logo" />
-            <a href="">会员</a>
-          </div>
-          <div class="btn">
-            <el-button class="login-btn">登录</el-button>
+          <div class="member-and-btn">
+            <div class="member">
+              <img src="../assets/member-logo.svg" class="member-logo" />
+              <a href="">会员</a>
+            </div>
+            <div class="btn">
+              <el-button class="login-btn">登录</el-button>
+            </div>
           </div>
         </div>
       </div>
@@ -64,15 +70,11 @@ export default {
     };
   },
   data() {
-    return {};
+    return { isActive: false };
   },
   methods: {
-    inputFocus() {
-      this.$refs.input.style.width = "500px";
-      this.$refs.input.style.transform = "width ease 1";
-    },
-    inputBlur() {
-      this.$refs.input.style.width = "416px";
+    isFoucsActive(val) {
+      this.isActive = val;
     },
   },
 };
@@ -109,11 +111,18 @@ export default {
   height: 22px;
 }
 .menu {
-  margin-left: 25px;
+  width: 11rem;
+  margin-left: 2rem;
+  transition: width 0.3s;
 }
 .menu-btn {
-  width: 119px;
+  width: 11rem;
   font-size: 1.167rem;
+}
+.menuHide {
+  width: 0;
+  border: transparent;
+  overflow: hidden;
 }
 .add-btn {
   height: 3rem;
@@ -162,7 +171,14 @@ a.router-link-active {
   margin-left: 30px;
 }
 .search {
-  width: 416px;
+  width: 24rem;
+  transition: width 0.3s;
+}
+.isFoucsActiveClass {
+  width: 35rem;
+}
+.search-input {
+  transition: width 0.3s;
 }
 .w-50 {
   background-color: #fff;
@@ -171,6 +187,12 @@ a.router-link-active {
   position: relative;
   height: 38px;
 }
+.member-and-btn {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  z-index: 99;
+}
 .member {
   display: flex;
 }
@@ -178,7 +200,7 @@ a.router-link-active {
   color: #86909c;
   font-weight: 400;
   font-size: 1.167rem;
-  line-height: 42px;
+  line-height: 3.6rem;
   margin-left: 4px;
 }
 .member-logo {
@@ -189,6 +211,8 @@ a.router-link-active {
 }
 .btn {
   margin-left: 20px;
+  background-color: #fff;
+  z-index: 99;
 }
 .login-btn {
   font-size: 14px;
