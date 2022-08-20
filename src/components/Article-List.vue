@@ -117,12 +117,18 @@
           </div>
         </div>
       </div>
+      <Side />
     </div>
   </div>
 </template>
 
 <script>
+import Side from "@/components/Side.vue";
+import SideAd from "@/components/Side-Ad.vue";
+
 export default {
+  components: { Side, SideAd },
+
   props: {
     allDataList: {
       type: Array,
