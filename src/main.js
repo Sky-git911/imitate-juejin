@@ -7,6 +7,7 @@ import "element-plus/dist/index.css";
 import request from "./utils/request";
 import api from "./api";
 
+
 console.log("环境变量", import.meta.env);
 
 const app = createApp(App);

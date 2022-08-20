@@ -124,10 +124,10 @@
 
 <script>
 import Side from "@/components/Side.vue";
-import SideAd from "@/components/Side-Ad.vue";
+//import SideAd from "@/components/Side-Ad.vue";
 
 export default {
-  components: { Side, SideAd },
+  components: { Side, },
 
   props: {
     allDataList: {

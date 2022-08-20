@@ -13,7 +13,7 @@
               :key="index"
               @mouseover="handleGetCategoryType(item.category_id)"
             >
-              <el-popover placement="bottom-start" :width="320" trigger="hover">
+              <el-popover placement="bottom-start" :width="320" trigger="hover" show-after="200" transition="none">
                 <div class="cat-tag">
                   <div v-for="(tag, index) in categorytype" :key="index">
                     <div class="cat-btn" :model="(catid = item.category_id)">
@@ -32,7 +32,6 @@
         </div>
       </header>
     </div>
-
     <main class="containerwith-view-nav">
       <div class="main-container flex">
         <article-list
@@ -47,8 +46,10 @@
 <script>
 import Nav from "@/components/Nav.vue";
 import ArticleList from "@/components/Article-List.vue";
+import backtop from "@/components/BackTop.vue";
+
 export default {
-  components: { Nav, ArticleList },
+  components: { Nav, ArticleList,backtop},
   data() {
     return {
       allDataList: [],
@@ -105,18 +106,17 @@ export default {
     },
     async getCategory() {
       const res = await this.$api.getCategory();
-      console.log("分类", res);
+      //console.log("分类", res);
       res.forEach((item) => {
         this.category.push(item);
       });
-      //console.log("11",this.categoryid)
     },
     async getCategoryType(cateId) {
       const res = await this.$api.getCategoryType({
         // cateId: "6809637769959178254",
         cateId,
       });
-      console.log("标签", res);
+      //console.log("标签", res);
       let type = [];
       res.forEach((item) => {
         type.push(item.tag_name);
