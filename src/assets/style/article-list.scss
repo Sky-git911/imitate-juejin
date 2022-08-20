@@ -33,19 +33,19 @@ a {
     &__content {
       position: relative;
       margin: 0px auto;
-      margin-top: 0.33rem;
+      margin-top: 0.5rem;
 
-          // position: relative;
-          width: 100%;
-          max-width: 960px;
-    // height: 100%;
-    // overflow: auto;
+      // position: relative;
+      width: 100%;
+      max-width: 960px;
+      // height: 100%;
+      // overflow: auto;
 
-
+      display: flex;
 
       &__entry-list {
-  
-        margin-right: 21.667rem;
+        flex: 1;
+        margin-right: 2rem;
         border-radius: 2px;
         width: 700px;
         .list-container {
@@ -78,9 +78,6 @@ a {
               }
             }
           }
-          // &__wrap{
-
-          // }
         }
       }
     }
