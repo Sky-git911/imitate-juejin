@@ -40,7 +40,6 @@
           @request="requestData"
         ></article-list>
       </div>
-      
     </main>
   </div>
 </template>
@@ -49,7 +48,7 @@
 import Nav from "@/components/Nav.vue";
 import ArticleList from "@/components/Article-List.vue";
 export default {
-  components: { Nav, ArticleList, },
+  components: { Nav, ArticleList },
   data() {
     return {
       allDataList: [],
@@ -207,7 +206,7 @@ a.router-link-active {
   color: #1e80ff;
 }
 
-.flex{
+.flex {
   display: flex;
   flex-direction: row;
 }
