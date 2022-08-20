@@ -11,30 +11,8 @@
 
 <script>
 export default {
-  // props: {
-  //   leftSide: {
-  //     type: Number,
-  //     required: true,
-  //     default: null,
-  //   },
-  // },
   data() {
-    return {
-      // left: null,
-    };
-  },
-  mounted() {
-    window.addEventListener("resize", this.setSize);
-  },
-  destroy() {
-    window.removeEventListener("resize", this.setSize);
-  },
-  methods: {
-    setSize() {
-      // console.log(this.leftSide);
-      this.left = this.leftSide * 0.8;
-      this.$refs.leftSide.style.left = this.left + "px";
-    },
+    return {};
   },
 };
 </script>
