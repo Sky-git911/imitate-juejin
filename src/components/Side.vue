@@ -15,8 +15,10 @@
       <div class="second_line">点亮你在社区的每一天</div>
     </div>
 
+    <side-ad></side-ad>
+
     <!-- 广告框 -->
-    <div class="ad" v-for="(ad, index) in ads" key="id">
+    <!-- <div class="ad" v-for="ad in ads" :key="ad.id">
       <a :href="ad.link">
         <img :src="ad.imgurl" alt="" class="adimg" />
       </a>
@@ -33,10 +35,10 @@
           <span>广告</span>
         </a>
       </div>
-    </div>
+    </div> -->
 
     <!-- app下载框 -->
-    <div class="app_content">
+    <!-- <div class="app_content">
       <img
         src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/home.59780ae.png"
         alt=""
@@ -46,7 +48,7 @@
         <div class="headline">下载稀土掘金APP</div>
         <div class="desc">一个帮助开发者成长的社区</div>
       </div>
-    </div>
+    </div> -->
 
     <!-- 作者榜 -->
     <div class="authorlist">
@@ -57,7 +59,7 @@
           </div>
         </template>
 
-        <div class="text item" v-for="author in topAuthors" key="author.id">
+        <div class="text item" v-for="author in topAuthors" :key="author.id">
           <a href="javascript:;" class="flex author">
             <div>
               <el-avatar :src="author.avatar_large" class="author_img" />
@@ -94,18 +96,20 @@
       <el-card class="box-card" body-style="padding:0;" shadow="never">
         <div v-for="link in linklist" :key="link.id" class="text item">
           <a href="javascript:;" class="flex">
-            <el-avatar shape="square" :size="35" :src="link.img" class="link_img"/>
-            <span class="title">{{link.title}}</span>
+            <el-avatar
+              shape="square"
+              :size="35"
+              :src="link.img"
+              class="link_img"
+            />
+            <span class="title">{{ link.title }}</span>
           </a>
         </div>
       </el-card>
-      
     </div>
 
     <!-- footer -->
-    <div class="footer">
-      
-    </div>
+    <div class="footer"></div>
   </div>
 </template>
 
@@ -116,7 +120,7 @@
 
 .sidebar {
   background-color: #f2f3f5;
-  width: 272px;
+  width: 20.2rem;
   padding: 10px auto;
 }
 /* 卡片样式 */
@@ -244,8 +248,8 @@
 }
 .app_img {
   flex-direction: row;
-  width: 50px;
-  height: 50px;
+  width: 4.167rem;
+  height: 4.167rem;
   margin-right: 16px;
 }
 .headline {
@@ -262,7 +266,8 @@
 }
 
 /* 作者榜 */
-.authorlist,.linklist {
+.authorlist,
+.linklist {
   background-color: #fff;
   margin-bottom: 16px;
 }
@@ -273,11 +278,14 @@
   font-size: 1.16rem;
   color: #333;
 }
-
-
-.author_img,.link_img {
-  width: 50px;
-  height: 50px;
+.author_img {
+  position: relative;
+  top: 0.5rem;
+}
+.author_img,
+.link_img {
+  width: 3rem;
+  height: 3rem;
   margin-right: 6px;
 }
 .author_info {
@@ -285,7 +293,8 @@
   text-overflow: ellipsis;
   margin: auto 0;
 }
-.author_name,.title {
+.author_name,
+.title {
   font-size: 16px;
   font-weight: 400;
   color: #333;
@@ -316,14 +325,19 @@
 }
 
 /* 外链列表 */
-.title{
+.title {
   display: block;
   margin: auto 3px;
 }
 </style>
 
 <script>
+import SideAd from "@/components/Side-Ad.vue";
+
 export default {
+  components: {
+    SideAd,
+  },
   name: "Side",
   data() {
     return {
@@ -340,6 +354,12 @@ export default {
           link: "/404",
           imgurl:
             "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a88a1ea956734105a5b002dfb48840cb~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?",
+        },
+        {
+          id: "003",
+          link: "/404",
+          imgurl:
+            "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b6c70fab5e446ce9b8be1678065d4e8~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?",
         },
       ],
       topAuthors: [],
