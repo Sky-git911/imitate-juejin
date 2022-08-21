@@ -61,6 +61,14 @@ export default {
       ],
     };
   },
+  methods: {
+    // 关闭广告
+    closebox(id) {
+      this.ads = this.ads.filter((ad) => {
+        return ad.id !== id;
+      });
+    },
+  },
 };
 </script>
 

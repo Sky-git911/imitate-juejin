@@ -109,7 +109,92 @@
     </div>
 
     <!-- footer -->
-    <div class="footer"></div>
+    <div class="side_footer">
+        <ul class="info_list flex">
+          <li>
+            <a href="javascript:;" class="link_text">用户协议</a>
+          </li>
+          <li>
+            <a href="javascript:;" class="link_text">营业执照</a>
+          </li>
+          <li>
+            <a href="javascript:;" class="link_text">隐私政策</a>
+          </li>
+          <li>
+            <a href="javascript:;" class="link_text">关于我们</a>
+          </li>
+        </ul>
+        <ul class="info_list flex">
+          <li>
+            <a href="javascript:;" class="link_text">站点地图</a>
+          </li>
+          <li>
+            <a href="javascript:;" class="link_text">使用指南</a>
+          </li>
+          <li>
+            <a href="javascript:;" class="link_text">友情链接</a>
+          </li>
+          <li>
+            <a href="javascript:;" class="link_text">更多文章</a>
+          </li>
+        </ul>
+        <ul class="info_list flex">
+          <li>
+            <a href="javascript:;" class="link_text"></a>
+          </li>
+        </ul>
+        <ul class="info_list flex">
+          <li>
+            <a href="javascript:;" class="link_text">京ICP备18012699号-3</a>
+          </li>
+        </ul>
+        <ul class="info_list flex">
+          <li>
+            <a href="javascript:;" class="link_text">
+              <img src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/police.d0289dc.png" alt="" class="plice_img">
+              京公网安备11010802026719号
+            </a>
+          </li>
+        </ul>
+        <ul class="info_list flex">
+          <li>
+            <span class="link_text">版权所有：北京北比信息技术有限公司</span>
+          </li>
+        </ul>
+        <ul class="info_list flex">
+          <li>
+            <span class="link_text">公司地址：北京市海淀区信息路甲28号13层B座13B-5</span>
+          </li>
+        </ul>
+        <ul class="info_list flex">
+          <li>
+            <span class="link_text">公司座机：010-83434395</span>
+          </li>
+        </ul>
+        <ul class="info_list flex">
+          <li>
+            <span class="link_text">举报邮箱：</span>
+            <a href="javascript:;" class="link_text"> feedback@xitu.io</a>
+          </li>
+        </ul>
+        <ul class="info_list flex">
+          <li>
+            <a href="javascript:;" class="link_text">©2022 稀土掘金</a>
+          </li>
+        </ul>
+        <ul class="flex">
+          <li>
+            <a href="javascript:;">
+              <img src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/weibo.0cd39f5.png" alt="微博" class="weibo">
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <img src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/wechat.ce329e6.png" alt="微信" class="wechat">
+            </a>
+          </li>
+        </ul>
+      </div>
   </div>
 </template>
 
@@ -185,85 +270,6 @@
   font-weight: 400;
   text-align: center;
 }
-/* 广告框 */
-.ad {
-  position: relative;
-  height: 200px;
-  margin-bottom: 16px;
-}
-
-.adimg {
-  width: 100%;
-  height: 200px;
-}
-.ad_text {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  font-size: 12px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 1px solid #fff;
-  border-radius: 6px;
-  padding: 5px 10px;
-  font-weight: 300;
-}
-.icon_close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  font-size: 1rem;
-  color: #909090;
-  opacity: 0.5;
-  display: none;
-  cursor: pointer;
-}
-
-.pub_text {
-  display: none;
-}
-.ad:hover .icon_close {
-  display: block;
-}
-.icon_close:hover {
-  opacity: 1;
-}
-.ad_text:hover .pub_text {
-  display: inline-block;
-  margin-right: 5px;
-}
-.ad_text:hover .ad_text {
-  background-color: rgba(0, 0, 0, 0.4);
-}
-/* app下载框 */
-.app_content {
-  display: flex;
-  flex-direction: row;
-  background-color: #fff;
-  margin-bottom: 16px;
-  padding: 16px;
-  font-size: 1.16rem;
-  line-height: 1.29;
-  color: #333;
-}
-.app_img {
-  flex-direction: row;
-  width: 4.167rem;
-  height: 4.167rem;
-  margin-right: 16px;
-}
-.headline {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 22px;
-  color: #1d2129;
-}
-.desc {
-  margin-top: 0.5rem;
-  font-size: 12px;
-  line-height: 20px;
-  color: #86909c;
-}
 
 /* 作者榜 */
 .authorlist,
@@ -295,14 +301,14 @@
 }
 .author_name,
 .title {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   color: #333;
   margin-bottom: 5px;
 }
 .author_desc {
   color: #909090;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 3px;
   white-space: nowrap;
   overflow: hidden;
@@ -329,6 +335,33 @@
   display: block;
   margin: auto 3px;
 }
+
+/* 侧边栏footer */
+
+ul.info_list {
+  justify-content: space-between;
+}
+ul.info_list li{
+  display: block;
+}
+ul.info_list li  .link_text{
+  font-size: 14px;
+  line-height: 1.6;
+  color: #9aa3ab;
+}
+ul.info_list li a:hover{
+  color: #007fff;
+}
+.plice_img{
+  vertical-align: middle;
+}
+.weibo, .wechat{
+  width: 30px;
+  margin-top: 20px;
+}
+.weibo{
+  margin-right: 10px;
+}
 </style>
 
 <script>
@@ -342,26 +375,7 @@ export default {
   data() {
     return {
       msg: "",
-      ads: [
-        {
-          id: "001",
-          link: "/404",
-          imgurl:
-            "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b6a58397c77485495a051142f1d863d~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?",
-        },
-        {
-          id: "002",
-          link: "/404",
-          imgurl:
-            "https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a88a1ea956734105a5b002dfb48840cb~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?",
-        },
-        {
-          id: "003",
-          link: "/404",
-          imgurl:
-            "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b6c70fab5e446ce9b8be1678065d4e8~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?",
-        },
-      ],
+      
       topAuthors: [],
       linklist: [
         {
@@ -394,13 +408,6 @@ export default {
       } else {
         this.msg = "晚上好";
       }
-    },
-
-    // 关闭广告
-    closebox(id) {
-      this.ads = this.ads.filter((ad) => {
-        return ad.id !== id;
-      });
     },
 
     // 获取作者榜单
