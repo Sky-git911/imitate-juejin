@@ -110,91 +110,105 @@
 
     <!-- footer -->
     <div class="side_footer">
-        <ul class="info_list flex">
-          <li>
-            <a href="javascript:;" class="link_text">用户协议</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="link_text">营业执照</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="link_text">隐私政策</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="link_text">关于我们</a>
-          </li>
-        </ul>
-        <ul class="info_list flex">
-          <li>
-            <a href="javascript:;" class="link_text">站点地图</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="link_text">使用指南</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="link_text">友情链接</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="link_text">更多文章</a>
-          </li>
-        </ul>
-        <ul class="info_list flex">
-          <li>
-            <a href="javascript:;" class="link_text"></a>
-          </li>
-        </ul>
-        <ul class="info_list flex">
-          <li>
-            <a href="javascript:;" class="link_text">京ICP备18012699号-3</a>
-          </li>
-        </ul>
-        <ul class="info_list flex">
-          <li>
-            <a href="javascript:;" class="link_text">
-              <img src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/police.d0289dc.png" alt="" class="plice_img">
-              京公网安备11010802026719号
-            </a>
-          </li>
-        </ul>
-        <ul class="info_list flex">
-          <li>
-            <span class="link_text">版权所有：北京北比信息技术有限公司</span>
-          </li>
-        </ul>
-        <ul class="info_list flex">
-          <li>
-            <span class="link_text">公司地址：北京市海淀区信息路甲28号13层B座13B-5</span>
-          </li>
-        </ul>
-        <ul class="info_list flex">
-          <li>
-            <span class="link_text">公司座机：010-83434395</span>
-          </li>
-        </ul>
-        <ul class="info_list flex">
-          <li>
-            <span class="link_text">举报邮箱：</span>
-            <a href="javascript:;" class="link_text"> feedback@xitu.io</a>
-          </li>
-        </ul>
-        <ul class="info_list flex">
-          <li>
-            <a href="javascript:;" class="link_text">©2022 稀土掘金</a>
-          </li>
-        </ul>
-        <ul class="flex">
-          <li>
-            <a href="javascript:;">
-              <img src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/weibo.0cd39f5.png" alt="微博" class="weibo">
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <img src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/wechat.ce329e6.png" alt="微信" class="wechat">
-            </a>
-          </li>
-        </ul>
-      </div>
+      <ul class="info_list flex">
+        <li>
+          <a href="javascript:;" class="link_text">用户协议</a>
+        </li>
+        <li>
+          <a href="javascript:;" class="link_text">营业执照</a>
+        </li>
+        <li>
+          <a href="javascript:;" class="link_text">隐私政策</a>
+        </li>
+        <li>
+          <a href="javascript:;" class="link_text">关于我们</a>
+        </li>
+      </ul>
+      <ul class="info_list flex">
+        <li>
+          <a href="javascript:;" class="link_text">站点地图</a>
+        </li>
+        <li>
+          <a href="javascript:;" class="link_text">使用指南</a>
+        </li>
+        <li>
+          <a href="javascript:;" class="link_text">友情链接</a>
+        </li>
+        <li>
+          <a href="javascript:;" class="link_text">更多文章</a>
+        </li>
+      </ul>
+      <ul class="info_list flex">
+        <li>
+          <a href="javascript:;" class="link_text"></a>
+        </li>
+      </ul>
+      <ul class="info_list flex">
+        <li>
+          <a href="javascript:;" class="link_text">京ICP备18012699号-3</a>
+        </li>
+      </ul>
+      <ul class="info_list flex">
+        <li>
+          <a href="javascript:;" class="link_text">
+            <img
+              src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/police.d0289dc.png"
+              alt=""
+              class="plice_img"
+            />
+            京公网安备11010802026719号
+          </a>
+        </li>
+      </ul>
+      <ul class="info_list flex">
+        <li>
+          <span class="link_text">版权所有：北京北比信息技术有限公司</span>
+        </li>
+      </ul>
+      <ul class="info_list flex">
+        <li>
+          <span class="link_text"
+            >公司地址：北京市海淀区信息路甲28号13层B座13B-5</span
+          >
+        </li>
+      </ul>
+      <ul class="info_list flex">
+        <li>
+          <span class="link_text">公司座机：010-83434395</span>
+        </li>
+      </ul>
+      <ul class="info_list flex">
+        <li>
+          <span class="link_text">举报邮箱：</span>
+          <a href="javascript:;" class="link_text"> feedback@xitu.io</a>
+        </li>
+      </ul>
+      <ul class="info_list flex">
+        <li>
+          <a href="javascript:;" class="link_text">©2022 稀土掘金</a>
+        </li>
+      </ul>
+      <ul class="flex">
+        <li>
+          <a href="javascript:;">
+            <img
+              src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/weibo.0cd39f5.png"
+              alt="微博"
+              class="weibo"
+            />
+          </a>
+        </li>
+        <li>
+          <a href="javascript:;">
+            <img
+              src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/wechat.ce329e6.png"
+              alt="微信"
+              class="wechat"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -339,27 +353,31 @@
 /* 侧边栏footer */
 
 ul.info_list {
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: flex-start;
+  font-size: 1rem;
 }
-ul.info_list li{
+ul.info_list li {
   display: block;
+  margin-right: 8px;
 }
-ul.info_list li  .link_text{
-  font-size: 14px;
+ul.info_list li .link_text {
+  /* font-size: 14px; */
   line-height: 1.6;
   color: #9aa3ab;
 }
-ul.info_list li a:hover{
+ul.info_list li a:hover {
   color: #007fff;
 }
-.plice_img{
+.plice_img {
   vertical-align: middle;
 }
-.weibo, .wechat{
-  width: 30px;
-  margin-top: 20px;
+.weibo,
+.wechat {
+  width: 24px;
+  margin-top: 1rem;
 }
-.weibo{
+.weibo {
   margin-right: 10px;
 }
 </style>
@@ -375,7 +393,7 @@ export default {
   data() {
     return {
       msg: "",
-      
+
       topAuthors: [],
       linklist: [
         {
