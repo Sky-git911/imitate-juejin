@@ -117,17 +117,22 @@
           </div>
         </div>
       </div>
-      <Side />
+      <aside class="aside">
+        <!-- <Side v-show="!hideSide" class="side" /> -->
+        <!-- <SideAd v-show="hideSide" class="side-ad" /> -->
+        <Side class="side" />
+        <!-- <SideAd class="side-ad" /> -->
+      </aside>
     </div>
   </div>
 </template>
 
 <script>
 import Side from "@/components/Side.vue";
-//import SideAd from "@/components/Side-Ad.vue";
+import SideAd from "@/components/Side-Ad.vue";
 
 export default {
-  components: { Side, },
+  components: { Side, SideAd },
 
   props: {
     allDataList: {
@@ -147,6 +152,7 @@ export default {
       containSize: 0, // 容器的最大容积
       startIndex: 0, // 记录当前滚动的第一个元素的索引
       scrollStatus: true,
+      hideSide: false,
       pagenum: 0,
     };
   },
@@ -175,12 +181,16 @@ export default {
       }
       return this.allDataList.slice(startIndex, this.endIndex);
     },
+
     // 定义上下空白的高度样式
     blankFillStyle() {
       let startIndex = 0;
       if (this.startIndex <= this.containSize) {
+        // if (this.startIndex <= 11) {
         startIndex = 0;
+        this.hideSide = false;
       } else {
+        this.hideSide = true;
         startIndex = this.startIndex - this.containSize;
       }
       return {
@@ -249,7 +259,7 @@ export default {
       if (this.startIndex == currentIndex) return;
       this.startIndex = currentIndex;
     },
-
+    // 观察加载更多
     observerLoading() {
       const loading = document.querySelector(".loading");
       // 建立观察者
@@ -286,5 +296,35 @@ export default {
 @import "@/assets/style/article-list.scss";
 .loading {
   height: 2rem;
+}
+.timeline__content {
+  position: relative;
+  .aside {
+    width: 20rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    .side {
+      transition: all 0.2s;
+    }
+    .side-ad {
+      position: fixed;
+      background-color: transparent;
+      box-shadow: none;
+      // opacity: 1;
+      transition: all 0.2s;
+      width: 20rem;
+      z-index: 5;
+    }
+  }
+  .aside,
+  .side,
+  .side-ad {
+    opacity: 1;
+    // top: 127px;
+    z-index: 5;
+    pointer-events: all;
+  }
 }
 </style>
