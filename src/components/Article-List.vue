@@ -42,7 +42,9 @@
                     <a href="" class="user-message">
                       <div class="user-popover">{{ item.author_name }}</div>
                     </a>
-                    <div class="date">时间</div>
+                    <div class="date" v-if="item.publishTime">
+                      {{ item.publishTime }}
+                    </div>
                     <div class="tag_list">
                       <a
                         v-for="tag in item.tags"
@@ -81,7 +83,7 @@
                         </li>
                         <li class="item like">
                           <i></i>
-                          <span>{{ item.collect_count }}</span>
+                          <span>{{ item.digg_count }}</span>
                         </li>
                         <li class="item comment">
                           <i></i>
@@ -117,17 +119,28 @@
           </div>
         </div>
       </div>
-      <Side />
+      <aside class="aside">
+        <Side v-show="!hideSide" class="side" />
+        <SideAd
+          v-show="hideSide"
+          class="side-ad"
+          :class="{ topHeight: showHeader }"
+        />
+      </aside>
+      <footer>
+        <BackTop @scrollTop="scrollTop" />
+      </footer>
     </div>
   </div>
 </template>
 
 <script>
 import Side from "@/components/Side.vue";
-//import SideAd from "@/components/Side-Ad.vue";
+import SideAd from "@/components/Side-Ad.vue";
+import BackTop from "@/components/BackTop.vue";
 
 export default {
-  components: { Side, },
+  components: { Side, SideAd, BackTop },
 
   props: {
     allDataList: {
@@ -147,6 +160,9 @@ export default {
       containSize: 0, // 容器的最大容积
       startIndex: 0, // 记录当前滚动的第一个元素的索引
       scrollStatus: true,
+      hideSide: false,
+      lastScrollPosition: 0, // 上一次滚动的位置
+      showHeader: true,
       pagenum: 0,
     };
   },
@@ -175,12 +191,16 @@ export default {
       }
       return this.allDataList.slice(startIndex, this.endIndex);
     },
+
     // 定义上下空白的高度样式
     blankFillStyle() {
       let startIndex = 0;
-      if (this.startIndex <= this.containSize) {
+      // if (this.startIndex <= this.containSize) {
+      if (this.startIndex <= 11) {
         startIndex = 0;
+        this.hideSide = false;
       } else {
+        this.hideSide = true;
         startIndex = this.startIndex - this.containSize;
       }
       return {
@@ -245,11 +265,23 @@ export default {
     // 执行数据设置的相关任务，滚动事件的具体行为
     setDataStartIndex() {
       let scrollTop = this.$refs.scrollContainer.scrollTop;
+      // console.log("距离顶部高度", scrollTop);
+      if (scrollTop >= 420 && this.showHeader) {
+        // 收缩顶部导航栏
+        this.showHeader = false;
+        this.$emit("hideNav", true);
+      }
+      if (scrollTop < this.lastScrollPosition && !this.showHeader) {
+        this.$emit("hideNav", false);
+      } else {
+        this.showHeader = true;
+      }
+      this.lastScrollPosition = scrollTop;
       let currentIndex = ~~(scrollTop / this.oneHeight);
       if (this.startIndex == currentIndex) return;
       this.startIndex = currentIndex;
     },
-
+    // 观察加载更多
     observerLoading() {
       const loading = document.querySelector(".loading");
       // 建立观察者
@@ -270,6 +302,11 @@ export default {
       ob.observe(loading);
     },
 
+    // 滚动到页面顶部
+    scrollTop() {
+      this.$refs.scrollContainer.scrollTo(0, 0);
+    },
+
     // 跳转详情页
     handleToDetail(id) {
       console.log(id);
@@ -286,5 +323,55 @@ export default {
 @import "@/assets/style/article-list.scss";
 .loading {
   height: 2rem;
+}
+.timeline {
+  scroll-behavior: smooth;
+}
+.timeline__content {
+  position: relative;
+  .aside {
+    width: 20rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    .side {
+      transition: all 0.3s;
+    }
+    .side-ad {
+      height: calc(100vh - 127px);
+
+      position: fixed;
+      background-color: transparent;
+      box-shadow: none;
+      // opacity: 1;
+      transition: all 0.2s;
+      width: 20rem;
+      z-index: 5;
+      top: 127px;
+      overflow: hidden;
+    }
+    .topHeight {
+      top: 67px;
+    }
+  }
+  .aside,
+  .side,
+  .side-ad {
+    opacity: 1;
+    // top: 127px;
+    z-index: 5;
+    pointer-events: all;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  aside,
+  footer {
+    display: none;
+  }
+  .timeline__content {
+    display: flex;
+  }
 }
 </style>

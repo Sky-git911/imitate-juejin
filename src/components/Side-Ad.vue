@@ -74,6 +74,15 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
+.sidebar {
+  background-color: #f2f3f5;
+  width: 20.2rem;
+  padding: 10px auto;
+}
 /* 广告框 */
 .ad {
   position: relative;

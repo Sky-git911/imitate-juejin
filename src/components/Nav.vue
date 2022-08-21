@@ -1,7 +1,6 @@
-git pull origin master --allow-unrelated-histories
 <template>
-  <div>
-    <div class="container">
+  <div style="height: 3.833rem">
+    <div class="container" :class="{ header: hidenav }">
       <div class="content">
         <a href="#" class="logo"
           ><img class="logo-img" src="../assets/juejinLogo.svg"
@@ -9,13 +8,13 @@ git pull origin master --allow-unrelated-histories
         <div class="tabs">
           <ul class="top-nav">
             <li><router-link to="/" exact>首页</router-link></li>
-            <li><router-link to="/hot">沸点</router-link></li>
-            <li><router-link to="/kc">课程</router-link></li>
-            <li><router-link to="/zb">直播</router-link></li>
-            <li><router-link to="/hd">活动</router-link></li>
-            <li><router-link to="/sc">商城</router-link></li>
-            <li><router-link to="/APP">APP</router-link></li>
-            <li><router-link to="/cj">插件</router-link></li>
+            <li><router-link to="/404">沸点</router-link></li>
+            <li><router-link to="/404">课程</router-link></li>
+            <li><router-link to="/404">直播</router-link></li>
+            <li><router-link to="/404">活动</router-link></li>
+            <li><router-link to="/404">商城</router-link></li>
+            <li><router-link to="/404">APP</router-link></li>
+            <li><router-link to="/404">插件</router-link></li>
           </ul>
         </div>
         <div class="right">
@@ -32,7 +31,9 @@ git pull origin master --allow-unrelated-histories
               @blur="isFoucsActive(false)"
             >
               <template #append>
-                <el-button size="large" :icon="Search" />
+                <el-button size="large">
+                  <el-icon><Search /></el-icon>
+                </el-button>
               </template>
             </el-input>
           </div>
@@ -60,17 +61,19 @@ git pull origin master --allow-unrelated-histories
 </template>
 
 <script>
-import { Search } from "@element-plus/icons-vue";
-
 export default {
   name: "Nav",
-  setup() {
-    return {
-      Search,
-    };
+  props: {
+    hidenav: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
-    return { isActive: false };
+    return {
+      isActive: false,
+      input4: "",
+    };
   },
   methods: {
     isFoucsActive(val) {
@@ -80,10 +83,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   background-color: white;
   border-bottom: 1px solid #eaeff5;
+}
+.header {
+  transition: all 0.2s;
+
+  transform: translate3d(0, -100%, 0);
 }
 .content {
   background-color: white;
@@ -223,5 +231,11 @@ a.router-link-active {
   border-radius: 5px;
   background: rgba(30, 128, 255, 0.05);
   border: 1px solid rgba(30, 128, 255, 0.3);
+}
+
+@media only screen and (max-width: 1230px) {
+  .member {
+    display: none !important;
+  }
 }
 </style>
