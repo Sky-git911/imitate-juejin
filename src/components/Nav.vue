@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   background-color: white;
   border-bottom: 1px solid #eaeff5;
@@ -231,5 +231,11 @@ a.router-link-active {
   border-radius: 5px;
   background: rgba(30, 128, 255, 0.05);
   border: 1px solid rgba(30, 128, 255, 0.3);
+}
+
+@media only screen and (max-width: 1230px) {
+  .member {
+    display: none !important;
+  }
 }
 </style>
