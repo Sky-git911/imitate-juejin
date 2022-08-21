@@ -29,11 +29,15 @@
         <!-- 评论区 -->
         <Comment />
       </div>
+      <div class="right_side">
+        <ArticleRightside></ArticleRightside>
+      </div>
     </div>
     <!-- 左侧固定菜单 -->
     <div class="menu">
       <ArticleLeftside />
     </div>
+    <!-- 右侧边栏 -->
   </div>
 </template>
 
@@ -43,6 +47,8 @@ import ArticleHeader from "@/components/ArticleHeader.vue";
 import ArticleMainText from "@/components/ArticleMainText.vue";
 import ArticleLeftside from "@/components/ArticleLeftside.vue";
 import Comment from "@/components/Comment.vue";
+import ArticleRightside from "@/components/ArticleRightside.vue";
+
 export default {
   components: {
     ArticleHeader,
@@ -50,6 +56,7 @@ export default {
     Nav,
     ArticleLeftside,
     Comment,
+    ArticleRightside,
   },
   data() {
     return {};

@@ -88,4 +88,13 @@ export default {
             mock: false,
         });
     },
+    // 获取相关文章
+    getSimilarArticle(params) {
+        return request({
+            url: "/article/similar",
+            method: "post",
+            data: params,
+            mock: false,
+        });
+    },
 };
