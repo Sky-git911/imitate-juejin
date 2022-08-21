@@ -54,6 +54,7 @@
 import Nav from "@/components/Nav.vue";
 import ArticleList from "@/components/Article-List.vue";
 import backtop from "@/components/BackTop.vue";
+import formatTime from "@/utils/formatTime.js";
 
 export default {
   components: { Nav, ArticleList, backtop },
@@ -104,6 +105,10 @@ export default {
             // 加入文章标签
             item_info.article_info.tags = item_info.tags;
             articleList.push(item_info.article_info);
+            // 格式化发布时间
+            item_info.article_info.publishTime = formatTime.timeInterval(
+              item_info.article_info.mtime
+            );
           }
         });
         console.log(articleList);

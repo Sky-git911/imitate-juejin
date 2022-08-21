@@ -42,7 +42,9 @@
                     <a href="" class="user-message">
                       <div class="user-popover">{{ item.author_name }}</div>
                     </a>
-                    <div class="date">时间</div>
+                    <div class="date" v-if="item.publishTime">
+                      {{ item.publishTime }}
+                    </div>
                     <div class="tag_list">
                       <a
                         v-for="tag in item.tags"
@@ -81,7 +83,7 @@
                         </li>
                         <li class="item like">
                           <i></i>
-                          <span>{{ item.collect_count }}</span>
+                          <span>{{ item.digg_count }}</span>
                         </li>
                         <li class="item comment">
                           <i></i>
