@@ -118,11 +118,12 @@
         </div>
       </div>
       <aside class="aside">
-        <!-- <Side v-show="!hideSide" class="side" /> -->
-        <!-- <SideAd v-show="hideSide" class="side-ad" /> -->
-        <Side class="side" />
-        <!-- <SideAd class="side-ad" /> -->
+        <Side v-show="!hideSide" class="side" />
+        <SideAd v-show="hideSide" class="side-ad" />
       </aside>
+      <footer>
+        <BackTop @scrollTop="scrollTop" />
+      </footer>
     </div>
   </div>
 </template>
@@ -130,9 +131,10 @@
 <script>
 import Side from "@/components/Side.vue";
 import SideAd from "@/components/Side-Ad.vue";
+import BackTop from "@/components/BackTop.vue";
 
 export default {
-  components: { Side, SideAd },
+  components: { Side, SideAd, BackTop },
 
   props: {
     allDataList: {
@@ -153,6 +155,8 @@ export default {
       startIndex: 0, // 记录当前滚动的第一个元素的索引
       scrollStatus: true,
       hideSide: false,
+      lastScrollPosition: 0, // 上一次滚动的位置
+      showHeader: true,
       pagenum: 0,
     };
   },
@@ -185,8 +189,8 @@ export default {
     // 定义上下空白的高度样式
     blankFillStyle() {
       let startIndex = 0;
-      if (this.startIndex <= this.containSize) {
-        // if (this.startIndex <= 11) {
+      // if (this.startIndex <= this.containSize) {
+      if (this.startIndex <= 11) {
         startIndex = 0;
         this.hideSide = false;
       } else {
@@ -255,6 +259,18 @@ export default {
     // 执行数据设置的相关任务，滚动事件的具体行为
     setDataStartIndex() {
       let scrollTop = this.$refs.scrollContainer.scrollTop;
+      // console.log("距离顶部高度", scrollTop);
+      if (scrollTop >= 420 && this.showHeader) {
+        // 收缩顶部导航栏
+        this.showHeader = false;
+        this.$emit("hideNav", true);
+      }
+      if (scrollTop < this.lastScrollPosition && !this.showHeader) {
+        this.$emit("hideNav", false);
+      } else {
+        this.showHeader = true;
+      }
+      this.lastScrollPosition = scrollTop;
       let currentIndex = ~~(scrollTop / this.oneHeight);
       if (this.startIndex == currentIndex) return;
       this.startIndex = currentIndex;
@@ -280,6 +296,11 @@ export default {
       ob.observe(loading);
     },
 
+    // 滚动到页面顶部
+    scrollTop() {
+      this.$refs.scrollContainer.scrollTo(0, 0);
+    },
+
     // 跳转详情页
     handleToDetail(id) {
       console.log(id);
@@ -296,6 +317,9 @@ export default {
 @import "@/assets/style/article-list.scss";
 .loading {
   height: 2rem;
+}
+.timeline {
+  scroll-behavior: smooth;
 }
 .timeline__content {
   position: relative;
@@ -325,6 +349,16 @@ export default {
     // top: 127px;
     z-index: 5;
     pointer-events: all;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  aside,
+  footer {
+    display: none;
+  }
+  .timeline__content {
+    display: flex;
   }
 }
 </style>
