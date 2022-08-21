@@ -119,7 +119,11 @@
       </div>
       <aside class="aside">
         <Side v-show="!hideSide" class="side" />
-        <SideAd v-show="hideSide" class="side-ad" />
+        <SideAd
+          v-show="hideSide"
+          class="side-ad"
+          :class="{ topHeight: showHeader }"
+        />
       </aside>
       <footer>
         <BackTop @scrollTop="scrollTop" />
@@ -330,9 +334,11 @@ export default {
     right: 0;
     z-index: 1;
     .side {
-      transition: all 0.2s;
+      transition: all 0.3s;
     }
     .side-ad {
+      height: calc(100vh - 127px);
+
       position: fixed;
       background-color: transparent;
       box-shadow: none;
@@ -340,6 +346,11 @@ export default {
       transition: all 0.2s;
       width: 20rem;
       z-index: 5;
+      top: 127px;
+      overflow: hidden;
+    }
+    .topHeight {
+      top: 67px;
     }
   }
   .aside,
