@@ -696,6 +696,11 @@ vue-code-highlight@^0.7.8:
     prism-es6 "^1.2.0"
     vue "^2.5.16"
 
+vue-cookies@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.npmmirror.com/vue-cookies/-/vue-cookies-1.8.1.tgz#8aeadd7ff9933b820de8c3f121c2be27c5ead7b5"
+  integrity sha512-PDq1EaiRRyau5PBQVscXboHW+iWtcG4wRY2UKIz1j0nrjb3KESRU1PUyNUDdOajAwy4RH1IfiNR0suhWRXQdrA==
+
 vue-demi@*:
   version "0.13.2"
   resolved "https://registry.npmmirror.com/vue-demi/-/vue-demi-0.13.2.tgz#f6081c2feb5b698549729a81683ce029b8da289e"
