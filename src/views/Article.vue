@@ -61,6 +61,10 @@ export default {
   data() {
     return {};
   },
+  created() {
+    const title = localStorage.getItem("pageTitle");
+    document.title = title;
+  },
   methods: {},
 };
 </script>
