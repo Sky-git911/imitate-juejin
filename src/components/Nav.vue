@@ -8,13 +8,13 @@
         <div class="tabs">
           <ul class="top-nav">
             <li><router-link to="/" exact>首页</router-link></li>
-            <li><router-link to="/404">沸点</router-link></li>
-            <li><router-link to="/404">课程</router-link></li>
-            <li><router-link to="/404">直播</router-link></li>
-            <li><router-link to="/404">活动</router-link></li>
-            <li><router-link to="/404">商城</router-link></li>
-            <li><router-link to="/404">APP</router-link></li>
-            <li><router-link to="/404">插件</router-link></li>
+            <li><router-link to="/404" target="_blank">沸点</router-link></li>
+            <li><router-link to="/404" target="_blank">课程</router-link></li>
+            <li><router-link to="/404" target="_blank">直播</router-link></li>
+            <li><router-link to="/404" target="_blank">活动</router-link></li>
+            <li><router-link to="/404" target="_blank">商城</router-link></li>
+            <li><router-link to="/404" target="_blank">APP</router-link></li>
+            <li><router-link to="/404" target="_blank">插件</router-link></li>
           </ul>
         </div>
         <div class="right">
