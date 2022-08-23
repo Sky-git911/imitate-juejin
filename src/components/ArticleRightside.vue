@@ -86,7 +86,7 @@
         <div class="card-header flex similar_header">相关文章</div>
         <div
           v-for="article in similarArticle"
-          key="article.artile_id"
+          :key="article.artile_id"
           class="simalar_item"
         >
           <a href="javascript:;">
@@ -130,7 +130,7 @@ export default {
     async getSimilarArticle() {
       const res = await this.$api.getSimilarArticle(this.params);
       this.similarArticle = res;
-      console.log("@@@@", this.similarArticle);
+      // console.log("@@@@", this.similarArticle);
     },
   },
   mounted() {

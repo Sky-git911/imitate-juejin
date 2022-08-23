@@ -14,7 +14,7 @@
       <li>接口</li>
       <li>抽象类与接口区别</li>
     </ul>
-    <p class="title1">1.抽象类</p>
+    <p class="title1" id="loc1" ref="loc1">1.抽象类</p>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;抽象类用abstract来修饰,例如:</p>
     <!-- 代码区域1 -->
     <div class="pre-container">
@@ -55,7 +55,7 @@
       </div>
     </div>
     <!-- 代码区域3结束 -->
-    <p class="title1">2.接口</p>
+    <p class="title1" id="loc2" ref="loc2">2.接口</p>
     <p>
       接口是抽象方法的集合,如果一个类实现了某个接口,那么它就继承了这个接口的抽象方法,就像契约模式,如果实现了这个接口,那么就必须保证使用这些方法,并且实现这些方法,接口是一种形式,接口自身不能做任何事情,接口里面的方法默认都是abstract的,以Externalizable接口为例:
     </p>
@@ -82,7 +82,7 @@
       </div>
     </div>
     <!-- 代码区域5结束 -->
-    <p class="title1">3.抽象类和接口的比较</p>
+    <p class="title1" id="loc3" ref="loc3">3.抽象类和接口的比较</p> 
     <!-- 表格 -->
     <table>
       <thead>

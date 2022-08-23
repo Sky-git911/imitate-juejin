@@ -88,7 +88,7 @@ export default {
   display: flex;
   flex-direction: column;
   top: 130px;
-  // 中间内容区域宽度不变，随着窗口大小变化，想让左侧固定菜单与中间内容区距离不变
+  // 中间内容区域居中，宽度不变，随着窗口大小变化，想让左侧固定菜单与中间内容区距离不变
   // 让左侧固定菜单先居中页面，再固定偏移出合适距离
   left: 50%;
   transform: translateX(-650px);

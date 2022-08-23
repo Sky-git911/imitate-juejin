@@ -214,7 +214,7 @@ export default {
     this.getCommentHot();
     this.getComment();
     // console.log(this.level);
-    console.log(this.hotlevel);
+    // console.log(this.hotlevel);
   },
   methods: {
     // 获取作者等级
@@ -228,7 +228,7 @@ export default {
         articleId: this.articleId,
         pageIndex: "0",
       });
-      console.log("comment", res);
+      // console.log("comment", res);
       this.allRes = res;
       this.allResLength = res.length;
       res.forEach((item) => {
@@ -243,7 +243,7 @@ export default {
       const res = await this.$api.getCommentHot({
         articleId: this.articleId,
       });
-      console.log("commentHot", res);
+      // console.log("commentHot", res);
       this.hotRes = res;
       this.hotResLength = res.length;
       res.forEach((item) => {
