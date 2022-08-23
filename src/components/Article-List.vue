@@ -23,7 +23,9 @@
                 class="item"
                 v-for="(item, index) in showDataList"
                 :key="index"
-                @click="handleToDetail(item.article_id || item.advert_id)"
+                @click="
+                  handleToDetail(item.article_id || item.advert_id, item.title)
+                "
               >
                 <!-- <li
                 class="item"
@@ -308,8 +310,9 @@ export default {
     },
 
     // 跳转详情页
-    handleToDetail(id) {
-      console.log(id);
+    handleToDetail(id, title) {
+      console.log(id, title);
+      localStorage.setItem("pageTitle", title);
       let routeUrl = this.$router.resolve({
         path: `/post/${id}`,
       });

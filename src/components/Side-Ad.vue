@@ -1,26 +1,27 @@
 <template>
-  <!-- 广告框 -->
-  <div class="ad" v-for="ad in ads" :key="ad.id">
-    <a :href="ad.link">
-      <img :src="ad.imgurl" alt="" class="adimg" />
-    </a>
-    <div class="ad_control">
-      <el-icon class="icon_close" @click="closebox(ad.id)"
-        ><CloseBold
-      /></el-icon>
-      <a
-        href="https://bd.juejin.cn?utm_campaign=bd&utm_source=web&utm_medium=banner"
-        target="_blank"
-        class="ad_text"
-      >
-        <span class="pub_text">投放 </span>
-        <span>广告</span>
+  <div class="sidebar">
+    <!-- 广告框 -->
+    <div class="ad" v-for="ad in ads" :key="ad.id">
+      <a :href="ad.link">
+        <img :src="ad.imgurl" alt="" class="adimg" />
       </a>
+      <div class="ad_control">
+        <el-icon class="icon_close" @click="closebox(ad.id)"
+          ><CloseBold
+        /></el-icon>
+        <a
+          href="https://bd.juejin.cn?utm_campaign=bd&utm_source=web&utm_medium=banner"
+          target="_blank"
+          class="ad_text"
+        >
+          <span class="pub_text">投放 </span>
+          <span>广告</span>
+        </a>
+      </div>
     </div>
-  </div>
 
-  <!-- app下载框 -->
-  <!-- <div class="app_content">
+    <!-- app下载框 -->
+    <!-- <div class="app_content">
     <img
       src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/home.59780ae.png"
       alt=""
@@ -31,13 +32,14 @@
       <div class="desc">一个帮助开发者成长的社区</div>
     </div>
   </div> -->
-  <AppLinkBlock></AppLinkBlock>
+    <AppLinkBlock></AppLinkBlock>
+  </div>
 </template>
 
 <script>
-import AppLinkBlock from '@/components/AppLinkBlock.vue';
+import AppLinkBlock from "@/components/AppLinkBlock.vue";
 export default {
-  components:{AppLinkBlock},
+  components: { AppLinkBlock },
   data() {
     return {
       ads: [
@@ -133,5 +135,4 @@ export default {
 .ad_text:hover .ad_text {
   background-color: rgba(0, 0, 0, 0.4);
 }
-
 </style>
