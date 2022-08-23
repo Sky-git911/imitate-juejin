@@ -89,6 +89,10 @@ export default {
       height3: null,
     };
   },
+  created() {
+    const title = localStorage.getItem("pageTitle");
+    document.title = title;
+  },
   methods: {
     handleScroll() {
       // 滚动条垂直距离超过一定高度，使目录为固定定位，使目录一直可见
