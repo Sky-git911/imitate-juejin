@@ -115,7 +115,8 @@ export default {
         document.documentElement.scrollTop < this.height2
       ) {
         this.activeIndex = 0;
-      } else if (
+      } 
+      else if (
         document.documentElement.scrollTop >= this.height2 &&
         document.documentElement.scrollTop < this.height3
       ) {
@@ -127,7 +128,7 @@ export default {
     // 得到锚点到顶部的距离
     getHeight1() {
       let loc = this.$refs.maintext.$refs.loc1;
-      let height = 0;
+      let height = 1;
       do {
         // offsetTop:元素到offsetParent顶部的距离,此处累加到body，求出锚点1到顶部的距离
         height += loc.offsetTop;
@@ -137,7 +138,7 @@ export default {
     },
     getHeight2() {
       let loc = this.$refs.maintext.$refs.loc2;
-      let height = 0;
+      let height = 1;
       do {
         height += loc.offsetTop;
         loc = loc.offsetParent;
@@ -146,7 +147,7 @@ export default {
     },
     getHeight3() {
       let loc = this.$refs.maintext.$refs.loc3;
-      let height = 0;
+      let height = 1;
       do {
         height += loc.offsetTop;
         loc = loc.offsetParent;
