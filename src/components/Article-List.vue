@@ -27,12 +27,6 @@
                   handleToDetail(item.article_id || item.advert_id, item.title)
                 "
               >
-                <!-- <li
-                class="item"
-                v-for="(item) in showDataList"
-                :key="item.article_id || item.advert_id"
-                @click="handleToDetail(item.article_id || item.advert_id)"
-              > -->
                 <div
                   :class="{
                     item__content: true,
@@ -115,7 +109,7 @@
                 </div>
               </li>
               <div class="loading">
-                <h2>{{ msg }}</h2>
+                <em>{{ msg }}</em>
               </div>
             </div>
           </div>
@@ -149,10 +143,6 @@ export default {
       type: Array,
       default: () => [],
     },
-    // isRequestStatus: {
-    //   type: Boolean,
-    //   default: true,
-    // },
   },
   data() {
     return {
@@ -197,18 +187,15 @@ export default {
     // 定义上下空白的高度样式
     blankFillStyle() {
       let startIndex = 0;
-      // if (this.startIndex <= this.containSize) {
-      if (this.startIndex <= 11) {
+      if (this.startIndex <= this.containSize) {
         startIndex = 0;
-        this.hideSide = false;
       } else {
-        this.hideSide = true;
         startIndex = this.startIndex - this.containSize;
       }
       return {
         paddingTop: startIndex * this.oneHeight + "px",
         paddingBottom:
-          (this.allDataList.length - this.endIndex) * this.oneHeight + "px",
+          (this.allDataList.length - this.endIndex - 1) * this.oneHeight + "px",
       };
     },
     // 列表总高度
@@ -227,22 +214,10 @@ export default {
     // 计算容器的最大容积
     getContainSize() {
       let screenHeight = this.$el.clientHeight;
-      console.log("可视高度", screenHeight);
       this.containSize = Math.ceil(screenHeight / this.oneHeight);
-      console.log(this.containSize);
     },
     // 定义滚动行为事件方法
     handleScrollEvent() {
-      // 节流
-      // if (this.scrollStatus) {
-      //   this.scrollStatus = false;
-      //   this.setDataStartIndex();
-      //   let timer = setTimeout(() => {
-      //     this.scrollStatus = true;
-      //     clearTimeout(timer);
-      //   }, 30);
-      // }
-
       // 使用 requestAnimationFrame 动画帧方法来实现节流效果
 
       // 兼容大部分浏览器
@@ -258,7 +233,6 @@ export default {
         let now = Date.now(); // 执行时时间戳
         this.setDataStartIndex();
         if (now - then >= interval) {
-          console.log("active");
           then = now;
           requestAnimationFrame(arguments.callee);
         }
@@ -267,7 +241,6 @@ export default {
     // 执行数据设置的相关任务，滚动事件的具体行为
     setDataStartIndex() {
       let scrollTop = this.$refs.scrollContainer.scrollTop;
-      // console.log("距离顶部高度", scrollTop);
       if (scrollTop >= 420 && this.showHeader) {
         // 收缩顶部导航栏
         this.showHeader = false;
@@ -278,6 +251,7 @@ export default {
       } else {
         this.showHeader = true;
       }
+      this.hideSide = scrollTop >= this.oneHeight * 12 ? true : false;
       this.lastScrollPosition = scrollTop;
       let currentIndex = ~~(scrollTop / this.oneHeight);
       if (this.startIndex == currentIndex) return;
@@ -311,7 +285,6 @@ export default {
 
     // 跳转详情页
     handleToDetail(id, title) {
-      console.log(id, title);
       localStorage.setItem("pageTitle", title);
       let routeUrl = this.$router.resolve({
         path: `/post/${id}`,
@@ -325,7 +298,14 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/style/article-list.scss";
 .loading {
+  text-align: center;
+  line-height: 2rem;
   height: 2rem;
+  font-size: 1rem;
+  color: #eee;
+  em {
+    font-style: italic;
+  }
 }
 .timeline {
   scroll-behavior: smooth;
@@ -348,7 +328,7 @@ export default {
       background-color: transparent;
       box-shadow: none;
       // opacity: 1;
-      transition: all 0.2s;
+      transition: all 0.2s linear;
       width: 20rem;
       z-index: 5;
       top: 127px;
