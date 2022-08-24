@@ -68,17 +68,10 @@ export default {
     };
   },
   created() {
-    this.getTestData();
-    // this.getComprehensiveList();
     this.getCategory();
     // this.getCategoryType();
   },
-  computed: {},
   methods: {
-    async getTestData() {
-      const res = await this.$api.getTestData();
-      console.log(res);
-    },
     requestData(e) {
       console.log("子组件来的", e);
       this.getComprehensiveList(e.pagenum);
