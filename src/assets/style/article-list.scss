@@ -11,12 +11,8 @@ a {
   
   
   .timeline {
-    // position: relative;
     margin: 0px auto;
     width: 100%;
-    // max-width: 960px;
-    // height: 100%;
-    // width: 100vw;
     height: 100%;
     position: relative;
     overflow: auto;
@@ -34,17 +30,10 @@ a {
       position: relative;
       margin: 0px auto;
       margin-top: 0.5rem;
-
-      // position: relative;
       width: 100%;
       max-width: 960px;
-      // height: 100%;
-      // overflow: auto;
-      
-
       &__entry-list {
         flex: 1;
-        // margin-right: 2rem;
         border-radius: 2px;
         width: 700px;
         .list-container {
@@ -84,7 +73,6 @@ a {
   // 列表数据
   .entry-list {
     width: 100%;
-    // height: 100%;
     background-color: #fff;
     position: relative;
     // 每一项
@@ -296,7 +284,6 @@ a {
   .svg{
     width: 12px;
     height: 12px;
-    // fill: none;
   }
   .dislike-button:after{
     display: block;
@@ -307,5 +294,4 @@ a {
     height: 100%;
     top: 0;
     left: 0;
-    // transform: translate(-10px,-10px);
   }

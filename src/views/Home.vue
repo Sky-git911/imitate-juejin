@@ -151,7 +151,6 @@ export default {
 
 .main-container {
   height: calc(100vh - 9rem);
-  // transition: height 0.3s;
 }
 .mainHeight {
   height: calc(100vh - 4rem);
@@ -186,9 +185,6 @@ export default {
 }
 .content2 {
   background-color: white;
-  // height: 72%;
-  // align-items: center;
-  // line-height: 1;
   position: fixed;
   top: 5rem;
   width: 100%;
@@ -231,7 +227,6 @@ a.router-link-active {
 .cat-tag {
   display: flex;
   flex-wrap: wrap;
-  //padding-right:5px;
 }
 .cat-btn {
   background-color: #f1f1f1;
