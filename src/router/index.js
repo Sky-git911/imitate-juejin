@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    meta: {
-      title: "仿-掘金首页",
+const routes = [{
+        path: "/",
+        name: "Home",
+        meta: {
+            title: "仿-掘金首页",
+        },
+        component: () =>
+            import ("@/views/Home.vue"),
     },
     component: () => import("@/views/Home.vue"),
   },
@@ -15,21 +17,29 @@ const routes = [
     meta: {
       title: "文章详情",
     },
-    component: () => import("@/views/Article.vue"),
-  },
-  {
-    path: "/404",
-    name: "404",
-    meta: {
-      title: "找不到页面",
+    {
+        path: "/side",
+        name: "Side",
+        meta: {
+            title: "侧边栏",
+        },
+        component: () =>
+            import ("@/views/Side.vue"),
     },
-    component: () => import("@/views/404.vue"),
-  },
+    {
+        path: "/404",
+        name: "404",
+        meta: {
+            title: "找不到页面",
+        },
+        component: () =>
+            import ("@/views/404.vue"),
+    },
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+    history: createWebHistory(),
+    routes,
 });
 
 // 导航守卫

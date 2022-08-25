@@ -50,6 +50,10 @@
   </div>
 </template>
 
+<style scoped>
+  
+</style>
+
 <script>
 import Nav from "@/components/Nav.vue";
 import ArticleList from "@/components/Article-List.vue";
