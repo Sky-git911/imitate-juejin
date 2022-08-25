@@ -54,10 +54,7 @@
               class="level-img"
               :src="level[index]"
               alt=""
-              v-if="
-                level[index] !=
-                'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-null.png'
-              "
+              v-if="level[index] != ''"
             />
           </div>
           <div class="center-center">
@@ -165,10 +162,7 @@
               class="level-img"
               :src="level[index]"
               alt=""
-              v-if="
-                level[index] !=
-                'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-null.png'
-              "
+              v-if="level[index] != ''"
             />
             <div class="user_job">{{ item.user_info.job_title }}</div>
           </div>
