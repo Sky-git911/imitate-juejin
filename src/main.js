@@ -7,7 +7,6 @@ import "element-plus/dist/index.css";
 import request from "./utils/request";
 import api from "./api";
 
-
 console.log("环境变量", import.meta.env);
 
 const app = createApp(App);
@@ -19,13 +18,14 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
 
-// app.use(router).use(ElementPlus).mount("#app");
-app.use(router).use(ElementPlus, { size: "small" }).mount("#app");
-
 // highlight 的样式，依赖包，组件
-import 'highlight.js/styles/atom-one-light.css'
-import 'highlight.js/lib/common'
-import hljsVuePlugin from '@highlightjs/vue-plugin'
+import "highlight.js/styles/atom-one-light.css";
+import "highlight.js/lib/common";
+import hljsVuePlugin from "@highlightjs/vue-plugin";
 
 //注册组件
-app.use(hljsVuePlugin)
+app
+  .use(router)
+  .use(ElementPlus, { size: "small" })
+  .use(hljsVuePlugin)
+  .mount("#app");

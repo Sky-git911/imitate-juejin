@@ -17,39 +17,6 @@
 
     <side-ad></side-ad>
 
-    <!-- 广告框 -->
-    <!-- <div class="ad" v-for="ad in ads" :key="ad.id">
-      <a :href="ad.link">
-        <img :src="ad.imgurl" alt="" class="adimg" />
-      </a>
-      <div class="ad_control">
-        <el-icon class="icon_close" @click="closebox(ad.id)"
-          ><CloseBold
-        /></el-icon>
-        <a
-          href="https://bd.juejin.cn?utm_campaign=bd&utm_source=web&utm_medium=banner"
-          target="_blank"
-          class="ad_text"
-        >
-          <span class="pub_text">投放 </span>
-          <span>广告</span>
-        </a>
-      </div>
-    </div> -->
-
-    <!-- app下载框 -->
-    <!-- <div class="app_content">
-      <img
-        src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/home.59780ae.png"
-        alt=""
-        class="app_img"
-      />
-      <div class="app_tex">
-        <div class="headline">下载稀土掘金APP</div>
-        <div class="desc">一个帮助开发者成长的社区</div>
-      </div>
-    </div> -->
-
     <!-- 作者榜 -->
     <div class="authorlist">
       <el-card class="box-card" body-style="padding:0;" shadow="never">

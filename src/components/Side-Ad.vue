@@ -20,18 +20,6 @@
       </div>
     </div>
 
-    <!-- app下载框 -->
-    <!-- <div class="app_content">
-    <img
-      src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/home.59780ae.png"
-      alt=""
-      class="app_img"
-    />
-    <div class="app_tex">
-      <div class="headline">下载稀土掘金APP</div>
-      <div class="desc">一个帮助开发者成长的社区</div>
-    </div>
-  </div> -->
     <AppLinkBlock></AppLinkBlock>
   </div>
 </template>
