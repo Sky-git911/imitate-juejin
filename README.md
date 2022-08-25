@@ -1,7 +1,20 @@
-# Vue 3 + Vite
+# 仿掘金官网
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 安装依赖
+```
+yarn install
+```
 
-## Recommended IDE Setup
+## 启动服务（需配合后端）
+```
+yarn dev
+```
+## 后端项目地址
+```
+https://github.com/liliangCS/juejin-server
+```
+## 演示
+- 在线地址：http://39.99.143.254/
+- 首页
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+- 详情页
