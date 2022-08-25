@@ -73,7 +73,6 @@ export default {
   },
   methods: {
     requestData(e) {
-      console.log("子组件来的", e);
       this.getComprehensiveList(e.pagenum);
     },
 
@@ -104,7 +103,6 @@ export default {
             );
           }
         });
-        console.log(articleList);
         this.allDataList = [...this.allDataList, ...articleList];
       } catch (error) {
         throw new Error();
@@ -131,7 +129,6 @@ export default {
     },
 
     handleGetCategoryType(id) {
-      console.log("分类id", id);
       this.getCategoryType(id);
     },
 
