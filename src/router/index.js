@@ -9,14 +9,13 @@ const routes = [{
         component: () =>
             import ("@/views/Home.vue"),
     },
-    {
-        path: "/article/post/:id",
-        name: "Article",
-        meta: {
-            title: "文章详情",
-        },
-        component: () =>
-            import ("@/views/Article.vue"),
+    component: () => import("@/views/Home.vue"),
+  },
+  {
+    path: "/post/:id",
+    name: "Article",
+    meta: {
+      title: "文章详情",
     },
     {
         path: "/side",
@@ -45,13 +44,12 @@ const router = createRouter({
 
 // 导航守卫
 router.beforeEach((to, from, next) => {
-    console.log(router.hasRoute);
-    if (router.hasRoute(to.name)) {
-        document.title = to.meta.title;
-        next();
-    } else {
-        next("/404");
-    }
+  if (router.hasRoute(to.name)) {
+    document.title = to.meta.title;
+    next();
+  } else {
+    next("/404");
+  }
 });
 
 export default router;

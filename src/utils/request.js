@@ -23,7 +23,7 @@ service.interceptors.request.use((req) => {
 
 // 响应拦截
 service.interceptors.response.use((res) => {
-    //  err_no, data, err_msg 是data的数据结构,imgUrl是图片接口的数据
+    //  err_no, data, err_msg 是data的数据结构, imgUrl为等级图片的返回数据
     const { err_no, data, err_msg, imgUrl } = res.data;
     if (err_no === 0) {
         return data || imgUrl;
