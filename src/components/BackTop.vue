@@ -44,9 +44,7 @@ export default {
   methods: {
     // 回到顶部操作
     goBack() {
-      if (location.pathname == "/") {
-        this.$emit("scrollTop");
-      }
+      this.$emit("scrollTop");
     },
 
     goNotFound() {
