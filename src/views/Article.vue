@@ -61,6 +61,9 @@
     <div class="menu">
       <ArticleLeftside />
     </div>
+    <footer>
+      <BackTop @scrollTop="scrollTop" />
+    </footer>
   </div>
 </template>
 
@@ -71,6 +74,7 @@ import ArticleMainText from "@/components/ArticleMainText.vue";
 import ArticleLeftside from "@/components/ArticleLeftside.vue";
 import Comment from "@/components/Comment.vue";
 import ArticleRightside from "@/components/ArticleRightside.vue";
+import BackTop from "@/components/BackTop.vue";
 
 export default {
   components: {
@@ -80,6 +84,7 @@ export default {
     ArticleLeftside,
     Comment,
     ArticleRightside,
+    BackTop,
   },
   data() {
     return {
@@ -115,8 +120,7 @@ export default {
         document.documentElement.scrollTop < this.height2
       ) {
         this.activeIndex = 0;
-      } 
-      else if (
+      } else if (
         document.documentElement.scrollTop >= this.height2 &&
         document.documentElement.scrollTop < this.height3
       ) {
@@ -170,6 +174,14 @@ export default {
       this.activeIndex = 2;
       window.scrollTo({
         top: this.height3,
+      });
+    },
+    // 滚动到页面顶部
+    scrollTop() {
+      document.documentElement.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
       });
     },
   },
