@@ -210,7 +210,7 @@ export default {
     };
   },
   created() {
-    this.articleId = window.location.href.substring(27);
+    this.articleId = window.location.hash.split("/")[2];
     this.getCommentHot();
     this.getComment();
     // console.log(this.level);
