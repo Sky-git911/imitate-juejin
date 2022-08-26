@@ -76,44 +76,38 @@
           <!-- 评论回复 -->
           <div class="reply">
             <div
-              class="hot-item"
-              v-for="(item, index) in hotRes"
-              :key="item.comment_id"
+              class="hot-item reply-item"
+              v-for="i in item.reply_infos"
+              :key="i"
             >
-              <div
-                class="hot-item reply-item"
-                v-for="i in item.reply_infos"
-                :key="i"
-              >
-                <div class="left">
-                  <div class="avatar">
-                    <img :src="i.user_info.avatar_large" alt="" />
-                  </div>
+              <div class="left">
+                <div class="avatar">
+                  <img :src="i.user_info.avatar_large" alt="" />
                 </div>
-                <div class="center">
-                  <div class="center-top">
-                    <div class="user_name">
-                      {{ i.user_info.user_name }}
-                    </div>
-                    <img
-                      class="level-img"
-                      :src="level[index]"
-                      alt=""
-                      v-if="level[index] != ''"
-                    />
+              </div>
+              <div class="center">
+                <div class="center-top">
+                  <div class="user_name">
+                    {{ i.user_info.user_name }}
                   </div>
-                  <div class="center-center">
-                    {{ i.reply_info.reply_content }}
+                  <img
+                    class="level-img"
+                    :src="level[index]"
+                    alt=""
+                    v-if="level[index] != ''"
+                  />
+                </div>
+                <div class="center-center">
+                  {{ i.reply_info.reply_content }}
+                </div>
+                <div class="center-bottom">
+                  <div class="center-bottom-item">
+                    <span class="iconfont">&#xe65c;</span>
+                    <span>点赞</span>
                   </div>
-                  <div class="center-bottom">
-                    <div class="center-bottom-item">
-                      <span class="iconfont">&#xe65c;</span>
-                      <span>点赞</span>
-                    </div>
-                    <div class="center-bottom-item">
-                      <span class="iconfont">&#xe891;</span>
-                      <span>回复</span>
-                    </div>
+                  <div class="center-bottom-item">
+                    <span class="iconfont">&#xe891;</span>
+                    <span>回复</span>
                   </div>
                 </div>
               </div>
